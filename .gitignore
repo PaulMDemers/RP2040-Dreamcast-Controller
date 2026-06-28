@@ -1,0 +1,14 @@
+build/
+build-host/
+*.elf
+*.uf2
+*.bin
+*.map
+*.dis
+*.hex
+*.o
+*.d
+*.a
+*.dSYM/
+.DS_Store
+
