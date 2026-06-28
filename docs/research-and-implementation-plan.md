@@ -181,7 +181,7 @@ Done when:
 - Logic analyzer shows valid start/data/end sequences.
 - A software Maple host simulator can send packets that firmware receives and parses.
 
-Status: packet-to-wire bitstream, wire decode, PIO TX buffer layout, and controller session dispatch are implemented and host-tested. Actual Pico PIO programs and hardware timing validation remain.
+Status: packet-to-wire bitstream, wire decode, PIO TX buffer layout, controller session dispatch, Maple PIO program files, and Pico TX wrapper scaffold are implemented. RX collection, full firmware request/response loop, and hardware timing validation remain.
 
 ### Phase 3: Main Peripheral State Machine
 

@@ -19,6 +19,13 @@ Single Pico 2 as a Maple main peripheral on Dreamcast port A.
 4. Use a second Pico or logic-level generator as a host simulator.
 5. Only then connect to a real Dreamcast through the protected interface.
 
+## Default Firmware Pins
+
+- Maple A: GPIO 10
+- Maple B: GPIO 11
+
+These are constructor defaults in `PicoMaplePhy` and are currently set explicitly in `app/main.cpp`.
+
 ## Protection Checklist
 
 - Common ground is intentional and solid.
@@ -26,4 +33,3 @@ Single Pico 2 as a Maple main peripheral on Dreamcast port A.
 - A/B have ESD protection if leaving a PCB or enclosure.
 - Any level shifter/transceiver direction pin defaults to receive/high impedance during reset.
 - USB-powered bench mode cannot backfeed the Dreamcast 5 V rail.
-

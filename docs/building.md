@@ -28,6 +28,7 @@ This prints a device-info exchange and a get-condition exchange for a port-A con
 - `controller_device`: standard controller identity, state, and Maple command dispatch.
 - `maple_session`: raw host bitstream to controller response/PIO TX buffer.
 - `controller_input_parser`: debug text commands for updating controller state.
+- `pico/maple_phy`: Pico SDK-facing Maple PIO TX wrapper and pin management scaffold.
 
 ## Debug Input Commands
 
@@ -44,6 +45,23 @@ neutral
 ```
 
 Controls: `a`, `b`, `x`, `y`, `c`, `z`, `d`, `start`, `up`, `down`, `left`, `right`, `lx`, `ly`, `rx`, `ry`, `lt`, `rt`.
+
+## Pico Transport Status
+
+The firmware target now includes:
+
+- Maple TX PIO program generation
+- Maple RX PIO program generation
+- `PicoMaplePhy` pin setup and line release
+- blocking TX path for `MaplePioTxBuffer`
+- USB stdio command parsing into `ControllerState`
+
+Remaining hardware work:
+
+- DMA or FIFO-backed RX collection
+- feeding RX packets into `ControllerMapleSession`
+- scheduling response delay after host packet end
+- logic analyzer timing validation
 
 ## Pico 2 Firmware
 

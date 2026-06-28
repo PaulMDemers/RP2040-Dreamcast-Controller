@@ -26,11 +26,18 @@ target_include_directories(dreamcast_core PUBLIC include)
 
 add_executable(dreamcast_controller
     app/main.cpp
+    src/pico/maple_phy.cpp
 )
 target_link_libraries(dreamcast_controller
     dreamcast_core
     pico_stdlib
+    hardware_clocks
+    hardware_gpio
+    hardware_pio
 )
+
+pico_generate_pio_header(dreamcast_controller ${CMAKE_CURRENT_LIST_DIR}/src/pico/maple_out.pio)
+pico_generate_pio_header(dreamcast_controller ${CMAKE_CURRENT_LIST_DIR}/src/pico/maple_in.pio)
 
 pico_enable_stdio_usb(dreamcast_controller 1)
 pico_enable_stdio_uart(dreamcast_controller 0)

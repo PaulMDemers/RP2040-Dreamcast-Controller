@@ -16,14 +16,14 @@ Implemented:
 - controller command dispatcher
 - raw host-bitstream session handling
 - PIO/DMA-friendly TX buffer layout
+- Pico-facing Maple TX PIO program and blocking TX wrapper scaffold
 - debug input parser for commands such as `press a`, `release start`, and `set lx 200`
 - no-dependency host tests and packet simulator
 
 Not implemented yet:
 
-- Pico PIO RX/TX programs wired into firmware
-- DMA-backed hardware transport
-- USB stdio command loop
+- DMA-backed Maple RX capture
+- full request/response firmware loop on real Maple bus
 - USB HID host input
 - VMU or jump-pack sub-peripheral emulation
 - real-console timing validation
@@ -75,6 +75,10 @@ cmake --build build
 
 The firmware target is `dreamcast_controller`. At the moment this target is a skeleton while the Maple hardware transport is being implemented.
 
+## Third-Party Code
+
+The Maple PIO programs are adapted from the MIT-licensed DreamPicoPort project. See `NOTICE.md`.
+
 ## Documentation
 
 - `docs/research-and-implementation-plan.md`: protocol research and staged implementation plan
@@ -85,4 +89,3 @@ The firmware target is `dreamcast_controller`. At the moment this target is a sk
 ## License
 
 MIT. See `LICENSE`.
-
