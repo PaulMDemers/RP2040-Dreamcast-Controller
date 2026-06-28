@@ -43,13 +43,12 @@ private:
 #ifdef PICO_ON_DEVICE
     PIO tx_pio_;
     PIO rx_pio_;
-    std::uint tx_sm_;
-    std::uint rx_sm_;
-    std::uint tx_program_offset_;
-    std::uint rx_program_offset_;
+    uint tx_sm_;
+    uint rx_sm_;
+    uint tx_program_offset_;
+    uint rx_program_offset_;
     bool initialized_;
 #endif
 };
 
 }  // namespace dreamcast::pico
-

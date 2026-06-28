@@ -74,3 +74,24 @@ cmake --build build
 ```
 
 The firmware target is `dreamcast_controller`. The current firmware entry point is a skeleton while the hardware Maple PIO layer is being brought up.
+
+Known-good local setup:
+
+```sh
+brew install cmake
+brew install armmbed/formulae/arm-none-eabi-gcc
+export PICO_SDK_PATH=/Users/pauldemers/pico/pico-sdk
+cmake -S . -B build -DPICO_BOARD=pico2
+cmake --build build
+```
+
+Avoid Homebrew's core `arm-none-eabi-gcc` formula for this project: that package may be built `--without-headers`, which causes firmware builds to fail on standard C++ headers such as `<cstddef>`. The ArmMbed formula installs the embedded runtime headers needed by Pico SDK C++ builds.
+
+If CMake warns that TinyUSB submodules are not initialized, USB stdio may be unavailable until the SDK submodules are fetched:
+
+```sh
+cd "$PICO_SDK_PATH"
+git submodule update --init
+```
+
+With the SDK at `/Users/pauldemers/pico/pico-sdk`, the Pico 2 build currently produces `build/dreamcast_controller.uf2`.

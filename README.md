@@ -75,6 +75,8 @@ cmake --build build
 
 The firmware target is `dreamcast_controller`. At the moment this target is a skeleton while the Maple hardware transport is being implemented.
 
+The project has been verified to configure and build for `PICO_BOARD=pico2` with the Pico SDK at `/Users/pauldemers/pico/pico-sdk` and the ArmMbed Homebrew embedded GCC formula.
+
 ## Third-Party Code
 
 The Maple PIO programs are adapted from the MIT-licensed DreamPicoPort project. See `NOTICE.md`.
